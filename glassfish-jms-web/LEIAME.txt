@@ -1,0 +1,24 @@
+GLASSFISH-JMS-WEB
+
+Iniciando Oracle GlassFish V3
+
+./asadmin start-domain
+
+Maven build
+
+clean package glassfish:deploy
+clean package glassfish:redeploy
+clean package glassfish:undeploy
+
+Application Server
+
+GlassFish Server Open Source Edition 3.1.2.2 (build 5)
+
+Observações:
+
+Por padrão, o Glassfish Application Server 3.1.2.2 vem com a senha do usuário admin em branco. Utilize o comando 
+asadmin change-admin-password para definir uma senha.
+
+Message Broker
+
+Apache Active MQ 5.6.0 
