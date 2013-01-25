@@ -23,13 +23,17 @@
 		<property name="ignoreUnresolvablePlaceholders" value="true" />
 	</bean>
 	
-	<camel:camelContext id="camel">
-		<camel:package>br.com.alexandre.glassfish.web.camel</camel:package>
+	<camel:camelContext id="camel"> 
+		<!-- camel:package nao funciona no JBoss AS 7.1.1 -->
+		<!-- camel:package does not run in JBoss AS 7.1.1 -->	
+		<camel:routeBuilder ref="routeBuilder"/>
 		<camel:dataFormats>
 			<camel:jaxb id="jaxbFormat" prettyPrint="true"
 				contextPath="br.com.alexandre.glassfish.interfaces" encoding="UTF-8" />
-		</camel:dataFormats>
+		</camel:dataFormats>		
 	</camel:camelContext>
+	
+	<bean id="routeBuilder" class="br.com.alexandre.glassfish.web.camel.MyRouteBuilder" />
 
 	<bean id="jms" class="org.apache.camel.component.jms.JmsComponent">
 		<property name="configuration" ref="jmsConfig" />
